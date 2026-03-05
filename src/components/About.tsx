@@ -1,137 +1,70 @@
-import { Target, Eye, Heart, CheckCircle2 } from 'lucide-react';
+import { Briefcase, GraduationCap, Award, TrendingUp, Users, Zap } from 'lucide-react';
 
 const About = () => {
-  const values = [
-    {
-      icon: Target,
-      title: 'Precision',
-      description: 'Meticulous attention to detail in every technical assessment and financial model.',
-    },
-    {
-      icon: CheckCircle2,
-      title: 'Integrity',
-      description: 'Unwavering commitment to transparency and ethical business practices.',
-    },
-    {
-      icon: Heart,
-      title: 'Collaboration',
-      description: 'Building lasting partnerships with stakeholders, investors, and communities.',
-    },
-  ];
-
-  const process = [
-    {
-      number: '01',
-      title: 'Assessment',
-      description: 'Comprehensive evaluation of technical feasibility, market conditions, and financial viability.',
-    },
-    {
-      number: '02',
-      title: 'Validation',
-      description: 'Rigorous testing of assumptions, risk analysis, and stakeholder alignment.',
-    },
-    {
-      number: '03',
-      title: 'Structuring',
-      description: 'Optimal project design, investment framework, and execution roadmap development.',
-    },
-    {
-      number: '04',
-      title: 'Delivery',
-      description: 'Implementation support, performance monitoring, and continuous optimization.',
-    },
+  const timeline = [
+    { year: '2022-Present', role: 'Senior Digital Technology Analyst', company: 'Nigeria LNG Limited', icon: Briefcase },
+    { year: '2020-2022', role: 'Senior Technical Support Engineer', company: 'Microsoft', icon: Award },
+    { year: '2018-2020', role: 'IT Support Analyst', company: 'FIRST E&P', icon: Zap },
+    { year: '2023-2025', role: 'MBA in AI & Automation', company: 'Nexford University', icon: GraduationCap },
   ];
 
   return (
-    <section id="about" className="py-24 bg-slate-50">
+    <section id="about" className="py-24 bg-slate-900/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
-          <div>
-            <div className="inline-block px-6 py-2 bg-slate-800 rounded-sm mb-4">
-              <span className="text-slate-200 text-sm font-semibold tracking-wide uppercase">About Us</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-              Engineering Excellence Since 2009
-            </h2>
-            <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-              DTS Netherlands B.V. delivers comprehensive engineering and project management services for major industrial and infrastructure developments worldwide.
-            </p>
-            <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-              With 15+ years of proven experience across 25+ countries, we provide technical assurance and strategic oversight for refineries, energy facilities, warehouses, and large-scale infrastructure projects.
-            </p>
-
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 bg-slate-800 flex items-center justify-center flex-shrink-0 mt-1">
-                  <CheckCircle2 className="text-white" size={16} />
-                </div>
-                <div>
-                  <div className="font-semibold text-slate-900 mb-1">Mission</div>
-                  <div className="text-slate-600">Deliver technically sound, commercially viable solutions for complex industrial projects.</div>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 bg-slate-800 flex items-center justify-center flex-shrink-0 mt-1">
-                  <Eye className="text-white" size={16} />
-                </div>
-                <div>
-                  <div className="font-semibold text-slate-900 mb-1">Vision</div>
-                  <div className="text-slate-600">Global recognition as trusted advisors for critical infrastructure development.</div>
-                </div>
-              </div>
-            </div>
+        <div className="text-center mb-16">
+          <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm rounded-full border border-blue-500/30 mb-4">
+            <span className="text-blue-400 text-sm font-semibold tracking-wide uppercase">About Me</span>
           </div>
-
-          <div className="grid grid-cols-1 gap-6">
-            {values.map((value, index) => (
-              <div
-                key={index}
-                className="bg-white p-6 border border-slate-200 hover:border-slate-400 hover:shadow-lg transition-all duration-300"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-slate-800 flex items-center justify-center flex-shrink-0">
-                    <value.icon className="text-white" size={24} />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-2">{value.title}</h3>
-                    <p className="text-slate-600">{value.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Strategic IT Leader & Innovation Architect
+          </h2>
         </div>
 
-        <div>
-          <div className="text-center mb-12">
-            <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Delivery Methodology
-            </h3>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Systematic approach ensuring project success from concept to completion.
+        <div className="grid lg:grid-cols-2 gap-12 mb-16">
+          <div className="space-y-6">
+            <p className="text-lg text-slate-300 leading-relaxed">
+              With over <span className="text-blue-400 font-semibold">8+ years</span> of experience in enterprise digital transformation, I specialize in turning complex technology initiatives into measurable business value.
             </p>
+            <p className="text-lg text-slate-300 leading-relaxed">
+              At <span className="text-purple-400 font-semibold">Nigeria LNG Limited</span>, I lead digital strategy initiatives that have delivered <span className="text-pink-400 font-semibold">$38.8M+</span> in cost savings and trained <span className="text-pink-400 font-semibold">2,500+</span> employees in digital capabilities.
+            </p>
+            <p className="text-lg text-slate-300 leading-relaxed">
+              I designed and launched NLNG's first <span className="text-blue-400 font-semibold">Innovation Hub (Catalyst Cove)</span>, yielding over <span className="text-purple-400 font-semibold">$2.25M</span> in annual cost avoidance.
+            </p>
+
+            <div className="grid grid-cols-2 gap-4 pt-6">
+              <div className="bg-white/5 backdrop-blur-sm p-4 rounded-lg border border-white/10">
+                <Users className="text-blue-400 mb-2" size={24} />
+                <div className="text-2xl font-bold text-white">2,500+</div>
+                <div className="text-sm text-slate-400">Employees Trained</div>
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm p-4 rounded-lg border border-white/10">
+                <TrendingUp className="text-purple-400 mb-2" size={24} />
+                <div className="text-2xl font-bold text-white">$38.8M+</div>
+                <div className="text-sm text-slate-400">Value Delivered</div>
+              </div>
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {process.map((step, index) => (
-              <div key={index} className="relative group">
-                <div className="bg-slate-800 p-8 text-white h-full hover:shadow-xl transition-all duration-300 cursor-pointer border border-slate-700">
-                  <div className="text-6xl font-bold text-slate-600 mb-4">
-                    {step.number}
+          <div className="space-y-4">
+            <h3 className="text-2xl font-bold text-white mb-6">Career Journey</h3>
+            {timeline.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <div key={index} className="flex gap-4 p-4 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 hover:border-blue-500/50 transition-all duration-300">
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                      <Icon className="text-white" size={20} />
+                    </div>
                   </div>
-                  <h4 className="text-xl font-bold mb-3">{step.title}</h4>
-                  <p className="text-slate-300 text-sm leading-relaxed">
-                    {step.description}
-                  </p>
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-slate-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                  <div>
+                    <div className="text-sm text-blue-400 font-semibold">{item.year}</div>
+                    <div className="text-white font-semibold">{item.role}</div>
+                    <div className="text-slate-400 text-sm">{item.company}</div>
+                  </div>
                 </div>
-                {index < process.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2">
-                    <div className="w-6 h-0.5 bg-slate-400"></div>
-                  </div>
-                )}
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

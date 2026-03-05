@@ -1,17 +1,18 @@
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Linkedin, Youtube } from 'lucide-react';
+import { Mail, Linkedin, Globe, Send, Calendar } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
-    organization: '',
     email: '',
+    company: '',
     message: '',
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
+    alert('Thank you! I will get back to you soon.');
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -25,87 +26,68 @@ const Contact = () => {
     <section id="contact" className="py-24 bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <div className="inline-block px-6 py-2 bg-slate-800 border border-slate-700 rounded-sm mb-4">
-            <span className="text-slate-300 text-sm font-semibold tracking-wide uppercase">Contact Us</span>
+          <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm rounded-full border border-blue-500/30 mb-4">
+            <span className="text-blue-400 text-sm font-semibold tracking-wide uppercase">Let's Connect</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Start Your Project
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Work With Me
           </h2>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto">
-            Discuss your requirements with our engineering team.
+            Ready to transform your organization? Let's discuss how we can work together.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
           <div>
-            <div className="bg-slate-800 border border-slate-700 p-8 mb-8">
+            <div className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 mb-8">
               <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
 
               <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-slate-700 flex items-center justify-center flex-shrink-0">
-                    <MapPin className="text-slate-400" size={20} />
+                <a href="mailto:emeks14@gmail.com" className="flex items-start gap-4 group">
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Mail className="text-white" size={20} />
                   </div>
                   <div>
-                    <div className="text-silver-300 text-sm mb-1">Address</div>
-                    <div className="text-white font-medium">Rotterdam, Netherlands</div>
-                    <div className="text-silver-300 text-sm">3011 AD</div>
+                    <div className="text-slate-400 text-sm mb-1">Email</div>
+                    <div className="text-white font-medium group-hover:text-blue-400 transition-colors">emeks14@gmail.com</div>
                   </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-slate-700 flex items-center justify-center flex-shrink-0">
-                    <Mail className="text-slate-400" size={20} />
-                  </div>
-                  <div>
-                    <div className="text-silver-300 text-sm mb-1">Email</div>
-                    <a href="mailto:info@stratedgeconsulting.com" className="text-white font-medium hover:text-slate-400 transition-colors">
-                      info@stratedgeconsulting.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-slate-700 flex items-center justify-center flex-shrink-0">
-                    <Phone className="text-slate-400" size={20} />
-                  </div>
-                  <div>
-                    <div className="text-silver-300 text-sm mb-1">Phone</div>
-                    <a href="tel:+31101234567" className="text-white font-medium hover:text-slate-400 transition-colors">
-                      +31 (0)10 123 4567
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-slate-800 border border-slate-700 p-8">
-              <h3 className="text-xl font-bold text-white mb-4">Follow Us</h3>
-              <div className="flex gap-4">
-                <a href="#" className="w-12 h-12 bg-slate-700 hover:bg-slate-600 flex items-center justify-center transition-colors">
-                  <Linkedin className="text-slate-400" size={20} />
                 </a>
-                <a href="#" className="w-12 h-12 bg-slate-700 hover:bg-slate-600 flex items-center justify-center transition-colors">
-                  <Youtube className="text-slate-400" size={20} />
+
+                <a href="https://www.linkedin.com/in/chisom-david/" target="_blank" rel="noopener noreferrer" className="flex items-start gap-4 group">
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Linkedin className="text-white" size={20} />
+                  </div>
+                  <div>
+                    <div className="text-slate-400 text-sm mb-1">LinkedIn</div>
+                    <div className="text-white font-medium group-hover:text-blue-400 transition-colors">linkedin.com/in/chisom-david</div>
+                  </div>
+                </a>
+
+                <a href="https://www.chivido.ng" target="_blank" rel="noopener noreferrer" className="flex items-start gap-4 group">
+                  <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Globe className="text-white" size={20} />
+                  </div>
+                  <div>
+                    <div className="text-slate-400 text-sm mb-1">Website</div>
+                    <div className="text-white font-medium group-hover:text-purple-400 transition-colors">www.chivido.ng</div>
+                  </div>
                 </a>
               </div>
             </div>
 
-            <div className="mt-8 bg-slate-800 border border-slate-700 p-6">
-              <h4 className="text-white font-semibold mb-2">Business Hours</h4>
-              <div className="text-silver-200 text-sm space-y-1">
-                <div>Monday - Friday: 9:00 - 18:00 CET</div>
-                <div>Saturday - Sunday: Closed</div>
-              </div>
+            <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm p-6 rounded-2xl border border-blue-500/30">
+              <Calendar className="text-blue-400 mb-3" size={32} />
+              <h4 className="text-white font-semibold mb-2">Schedule a Consultation</h4>
+              <p className="text-slate-300 text-sm">Book a free 30-minute strategy session to discuss your digital transformation needs.</p>
             </div>
           </div>
 
-          <div className="bg-white p-8">
-            <h3 className="text-2xl font-bold text-navy-900 mb-6">Send Us a Message</h3>
+          <div className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10">
+            <h3 className="text-2xl font-bold text-white mb-6">Send a Message</h3>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">
                   Full Name *
                 </label>
                 <input
@@ -115,28 +97,13 @@ const Contact = () => {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 focus:ring-2 focus:ring-slate-500 focus:border-transparent outline-none transition-all"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-white"
                   placeholder="John Doe"
                 />
               </div>
 
               <div>
-                <label htmlFor="organization" className="block text-sm font-medium text-gray-700 mb-2">
-                  Organization
-                </label>
-                <input
-                  type="text"
-                  id="organization"
-                  name="organization"
-                  value={formData.organization}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 focus:ring-2 focus:ring-slate-500 focus:border-transparent outline-none transition-all"
-                  placeholder="Your Company"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
                   Email Address *
                 </label>
                 <input
@@ -146,13 +113,28 @@ const Contact = () => {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 focus:ring-2 focus:ring-slate-500 focus:border-transparent outline-none transition-all"
-                  placeholder="john@example.com"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-white"
+                  placeholder="john@company.com"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="company" className="block text-sm font-medium text-slate-300 mb-2">
+                  Company / Organization
+                </label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  value={formData.company}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-white"
+                  placeholder="Your Company"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-2">
                   Message *
                 </label>
                 <textarea
@@ -162,28 +144,19 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   rows={5}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all resize-none"
-                  placeholder="Tell us about your project..."
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none text-white"
+                  placeholder="Tell me about your digital transformation needs..."
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-slate-800 text-white px-8 py-4 hover:bg-slate-700 transition-all duration-300 flex items-center justify-center gap-2 font-semibold border border-slate-700"
+                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 flex items-center justify-center gap-2 font-semibold"
               >
                 Send Message
                 <Send size={20} />
               </button>
             </form>
-          </div>
-        </div>
-
-        <div className="mt-12 bg-slate-800 border border-slate-700 p-6 overflow-hidden">
-          <div className="aspect-video bg-slate-900 flex items-center justify-center">
-            <div className="text-center text-slate-500">
-              <MapPin size={48} className="mx-auto mb-2 opacity-50" />
-              <p className="text-sm">Rotterdam, Netherlands</p>
-            </div>
           </div>
         </div>
       </div>

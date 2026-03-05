@@ -1,92 +1,97 @@
-import { FileSearch, Settings, DollarSign, Zap } from 'lucide-react';
+import { Brain, Lightbulb, BarChart3, Bot, GraduationCap, Rocket } from 'lucide-react';
 
 const Services = () => {
   const services = [
     {
-      icon: FileSearch,
-      title: 'Project Feasibility & Design',
-      description: 'Comprehensive technical and financial assessments to validate project viability from concept to execution.',
-      features: ['Market Analysis', 'Risk Assessment', 'Technical Design', 'Financial Modeling'],
-      image: 'https://images.pexels.com/photos/416405/pexels-photo-416405.jpeg?auto=compress&cs=tinysrgb&w=800',
+      icon: Brain,
+      title: 'Digital Transformation Strategy',
+      description: 'Modernize technology ecosystems and align IT with business value through comprehensive digital strategy.',
+      features: ['Technology Roadmaps', 'Digital Maturity Assessment', 'Change Management', 'Value Realization'],
+      gradient: 'from-blue-600 to-cyan-600',
     },
     {
-      icon: Settings,
-      title: 'Technical Advisory & Inspections',
-      description: 'Expert engineering consultation and on-site inspections ensuring projects meet international standards.',
-      features: ['Quality Assurance', 'Compliance Review', 'Technical Due Diligence', 'Performance Monitoring'],
-      image: 'https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=800',
+      icon: Lightbulb,
+      title: 'Innovation Programs & Labs',
+      description: 'Design and launch innovation hubs, hackathons, and ideation programs that drive measurable business outcomes.',
+      features: ['Innovation Hub Setup', 'Hackathons', 'Idea Management', 'POC Development'],
+      gradient: 'from-purple-600 to-pink-600',
     },
     {
-      icon: DollarSign,
-      title: 'Investment Structuring & Due Diligence',
-      description: 'Strategic financial structuring and comprehensive due diligence to prepare projects for investment.',
-      features: ['Capital Structure', 'Investor Relations', 'Legal Framework', 'Exit Strategy'],
-      image: 'https://images.pexels.com/photos/97906/pexels-photo-97906.jpeg?auto=compress&cs=tinysrgb&w=800',
+      icon: BarChart3,
+      title: 'Technology Portfolio Governance',
+      description: 'Manage digital investments, IT portfolios, and technology initiatives with structured governance frameworks.',
+      features: ['Portfolio Management', 'Business Case Development', 'ROI Tracking', 'Risk Management'],
+      gradient: 'from-pink-600 to-rose-600',
     },
     {
-      icon: Zap,
-      title: 'Energy Transition & Infrastructure',
-      description: 'Specialized consulting for renewable energy, smart infrastructure, and sustainable development projects.',
-      features: ['Renewables Integration', 'Smart Cities', 'Grid Modernization', 'Sustainability Planning'],
-      image: 'https://images.pexels.com/photos/2800832/pexels-photo-2800832.jpeg?auto=compress&cs=tinysrgb&w=800',
+      icon: Bot,
+      title: 'AI & Automation Advisory',
+      description: 'Guide businesses on implementing AI, analytics, and automation solutions for operational excellence.',
+      features: ['AI Strategy', 'Process Automation', 'Analytics Implementation', 'Smart Technologies'],
+      gradient: 'from-cyan-600 to-teal-600',
+    },
+    {
+      icon: GraduationCap,
+      title: 'Digital Capability Development',
+      description: 'Train teams in digital literacy, AI adoption, and future-of-work capabilities at enterprise scale.',
+      features: ['Training Programs', 'Digital Literacy', 'Change Enablement', 'Capability Assessment'],
+      gradient: 'from-orange-600 to-amber-600',
+    },
+    {
+      icon: Rocket,
+      title: 'Enterprise System Implementation',
+      description: 'Deploy and optimize enterprise applications like SAP, Dynamics 365, and cloud-based solutions.',
+      features: ['SAP Support', 'Microsoft 365', 'System Integration', 'Cloud Migration'],
+      gradient: 'from-indigo-600 to-violet-600',
     },
   ];
 
   return (
-    <section id="services" className="py-24 bg-slate-50">
+    <section id="services" className="py-24 bg-slate-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <div className="inline-block px-6 py-2 bg-slate-800 rounded-sm mb-4">
-            <span className="text-slate-200 text-sm font-semibold tracking-wide uppercase">Engineering Services</span>
+          <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm rounded-full border border-blue-500/30 mb-4">
+            <span className="text-blue-400 text-sm font-semibold tracking-wide uppercase">What I Offer</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-            Comprehensive Solutions
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Consulting Services
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            End-to-end technical and commercial support for complex industrial projects worldwide.
+          <p className="text-xl text-slate-400 max-w-3xl mx-auto">
+            End-to-end digital transformation solutions tailored for enterprise organizations
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="group bg-white border border-slate-200 hover:border-slate-400 hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden"
-            >
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
-                <div className="absolute bottom-4 left-4">
-                  <div className="w-12 h-12 bg-slate-800 flex items-center justify-center">
-                    <service.icon className="text-white" size={24} />
-                  </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <div
+                key={index}
+                className="group bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-blue-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20"
+              >
+                <div className={`w-16 h-16 bg-gradient-to-r ${service.gradient} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <Icon className="text-white" size={32} />
                 </div>
-              </div>
 
-              <div className="p-8">
-                <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                <h3 className="text-2xl font-bold text-white mb-4">
                   {service.title}
                 </h3>
 
-                <p className="text-slate-600 mb-6 leading-relaxed">
+                <p className="text-slate-400 mb-6 leading-relaxed">
                   {service.description}
                 </p>
 
-                <div className="grid grid-cols-2 gap-3 pt-6 border-t border-slate-200">
+                <div className="space-y-2">
                   {service.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center gap-2 text-sm">
-                      <div className="w-1 h-1 bg-slate-800"></div>
-                      <span className="text-slate-700">{feature}</span>
+                    <div key={idx} className="flex items-center gap-2 text-sm text-slate-400">
+                      <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${service.gradient}`}></div>
+                      <span>{feature}</span>
                     </div>
                   ))}
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
