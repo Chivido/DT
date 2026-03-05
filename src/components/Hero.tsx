@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react';
 import { ArrowRight, Play, Award, Users, TrendingUp } from 'lucide-react';
 import profileImage1 from '../assets/Chivido_pic.png';
 import profileImage2 from '../assets/Chivido55.png';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Hero = () => {
+  const { theme } = useTheme();
   const [currentImage, setCurrentImage] = useState(0);
   const images = [profileImage1, profileImage2];
 
@@ -47,7 +49,7 @@ const Hero = () => {
               <span className="text-blue-400 text-sm font-semibold tracking-wide uppercase">Strategic IT Leader</span>
             </div>
 
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight">
+            <h1 className={`text-5xl sm:text-6xl lg:text-7xl font-bold ${theme === 'dark' ? 'text-white' : 'text-slate-900'} leading-tight`}>
               Chisom David
               <br />
               <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
@@ -56,28 +58,28 @@ const Hero = () => {
             </h1>
 
             <div className="space-y-4">
-              <h2 className="text-2xl sm:text-3xl font-semibold text-slate-300">
+              <h2 className={`text-2xl sm:text-3xl font-semibold ${theme === 'dark' ? 'text-slate-300' : 'text-slate-700'}`}>
                 Digital Transformation Consultant | Innovation Architect
               </h2>
 
-              <p className="text-xl text-slate-400 leading-relaxed max-w-2xl">
+              <p className={`text-xl ${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'} leading-relaxed max-w-2xl`}>
                 Helping organizations unlock millions in value through digital strategy, AI, and innovation.
               </p>
             </div>
 
             {/* Quick Stats */}
             <div className="grid grid-cols-3 gap-4 py-6">
-              <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
+              <div className={`text-center p-4 ${theme === 'dark' ? 'bg-white/5' : 'bg-slate-100'} backdrop-blur-sm rounded-lg border ${theme === 'dark' ? 'border-white/10' : 'border-slate-200'}`}>
                 <div className="text-3xl font-bold text-blue-400">$38M+</div>
-                <div className="text-sm text-slate-400">Value Delivered</div>
+                <div className={`text-sm ${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'}`}>Value Delivered</div>
               </div>
-              <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
+              <div className={`text-center p-4 ${theme === 'dark' ? 'bg-white/5' : 'bg-slate-100'} backdrop-blur-sm rounded-lg border ${theme === 'dark' ? 'border-white/10' : 'border-slate-200'}`}>
                 <div className="text-3xl font-bold text-purple-400">2,500+</div>
-                <div className="text-sm text-slate-400">Trained</div>
+                <div className={`text-sm ${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'}`}>Trained</div>
               </div>
-              <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
-                <div className="text-3xl font-bold text-pink-400">8+</div>
-                <div className="text-sm text-slate-400">Years Exp</div>
+              <div className={`text-center p-4 ${theme === 'dark' ? 'bg-white/5' : 'bg-slate-100'} backdrop-blur-sm rounded-lg border ${theme === 'dark' ? 'border-white/10' : 'border-slate-200'}`}>
+                <div className="text-3xl font-bold text-pink-400">10+</div>
+                <div className={`text-sm ${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'}`}>Years Exp</div>
               </div>
             </div>
 
@@ -92,7 +94,7 @@ const Hero = () => {
               </button>
               <button
                 onClick={() => scrollToSection('portfolio')}
-                className="group bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-lg hover:bg-white/20 transition-all duration-300 flex items-center justify-center gap-2 border border-white/20 font-semibold"
+                className={`group ${theme === 'dark' ? 'bg-white/10 hover:bg-white/20 text-white border-white/20' : 'bg-slate-100 hover:bg-slate-200 text-slate-900 border-slate-300'} backdrop-blur-sm px-8 py-4 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 border font-semibold`}
               >
                 <Play size={20} />
                 View Portfolio
@@ -100,7 +102,7 @@ const Hero = () => {
             </div>
 
             {/* Trust Indicators */}
-            <div className="flex items-center gap-6 pt-4 text-sm text-slate-400">
+            <div className={`flex items-center gap-6 pt-4 text-sm ${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'}`}>
               <div className="flex items-center gap-2">
                 <Award className="text-blue-400" size={20} />
                 <span>Microsoft Certified</span>
@@ -136,13 +138,13 @@ const Hero = () => {
                         currentImage === index ? 'opacity-100' : 'opacity-0'
                       }`}
                     >
-                      <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white/10 shadow-2xl">
+                      <div className={`relative w-full h-full rounded-full overflow-hidden border-4 ${theme === 'dark' ? 'border-white/10' : 'border-slate-200'} shadow-2xl`}>
                         <img
                           src={img}
                           alt="Chisom David Chukwuemeka"
                           className="w-full h-full object-cover"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent"></div>
+                        <div className={`absolute inset-0 bg-gradient-to-t ${theme === 'dark' ? 'from-slate-900/50' : 'from-white/50'} to-transparent`}></div>
                       </div>
                     </div>
                   ))}

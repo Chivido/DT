@@ -1,6 +1,8 @@
 import { Brain, Lightbulb, BarChart3, Bot, GraduationCap, Rocket } from 'lucide-react';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Services = () => {
+  const { theme } = useTheme();
   const services = [
     {
       icon: Brain,
@@ -47,16 +49,16 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-24 bg-slate-950">
+    <section id="services" className={`py-24 ${theme === 'dark' ? 'bg-slate-950' : 'bg-white'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm rounded-full border border-blue-500/30 mb-4">
             <span className="text-blue-400 text-sm font-semibold tracking-wide uppercase">What I Offer</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className={`text-4xl md:text-5xl font-bold ${theme === 'dark' ? 'text-white' : 'text-slate-900'} mb-6`}>
             Consulting Services
           </h2>
-          <p className="text-xl text-slate-400 max-w-3xl mx-auto">
+          <p className={`text-xl ${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'} max-w-3xl mx-auto`}>
             End-to-end digital transformation solutions tailored for enterprise organizations
           </p>
         </div>
@@ -67,23 +69,23 @@ const Services = () => {
             return (
               <div
                 key={index}
-                className="group bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-blue-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20"
+                className={`group ${theme === 'dark' ? 'bg-white/5' : 'bg-slate-100'} backdrop-blur-sm p-8 rounded-2xl border ${theme === 'dark' ? 'border-white/10' : 'border-slate-200'} hover:border-blue-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20`}
               >
                 <div className={`w-16 h-16 bg-gradient-to-r ${service.gradient} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
                   <Icon className="text-white" size={32} />
                 </div>
 
-                <h3 className="text-2xl font-bold text-white mb-4">
+                <h3 className={`text-2xl font-bold ${theme === 'dark' ? 'text-white' : 'text-slate-900'} mb-4`}>
                   {service.title}
                 </h3>
 
-                <p className="text-slate-400 mb-6 leading-relaxed">
+                <p className={`${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'} mb-6 leading-relaxed`}>
                   {service.description}
                 </p>
 
                 <div className="space-y-2">
                   {service.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center gap-2 text-sm text-slate-400">
+                    <div key={idx} className={`flex items-center gap-2 text-sm ${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'}`}>
                       <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${service.gradient}`}></div>
                       <span>{feature}</span>
                     </div>

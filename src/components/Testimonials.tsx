@@ -1,6 +1,8 @@
 import { Quote, Star } from 'lucide-react';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Testimonials = () => {
+  const { theme } = useTheme();
   const testimonials = [
     {
       quote: "Outstanding performance and dedication to digital transformation excellence.",
@@ -23,13 +25,13 @@ const Testimonials = () => {
   ];
 
   return (
-    <section id="testimonials" className="py-24 bg-slate-950">
+    <section id="testimonials" className={`py-24 ${theme === 'dark' ? 'bg-slate-950' : 'bg-white'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm rounded-full border border-blue-500/30 mb-4">
             <span className="text-blue-400 text-sm font-semibold tracking-wide uppercase">Testimonials</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className={`text-4xl md:text-5xl font-bold ${theme === 'dark' ? 'text-white' : 'text-slate-900'} mb-6`}>
             Recognized Excellence
           </h2>
         </div>
@@ -38,18 +40,18 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-blue-500/50 transition-all duration-300"
+              className={`${theme === 'dark' ? 'bg-white/5' : 'bg-slate-100'} backdrop-blur-sm p-8 rounded-2xl border ${theme === 'dark' ? 'border-white/10' : 'border-slate-200'} hover:border-blue-500/50 transition-all duration-300`}
             >
               <Quote className="text-blue-400 mb-4" size={32} />
-              <p className="text-slate-300 mb-6 leading-relaxed italic">{testimonial.quote}</p>
+              <p className={`${theme === 'dark' ? 'text-slate-300' : 'text-slate-700'} mb-6 leading-relaxed italic`}>{testimonial.quote}</p>
               <div className="flex gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star key={i} className="text-yellow-400 fill-current" size={16} />
                 ))}
               </div>
               <div>
-                <div className="text-white font-semibold">{testimonial.author}</div>
-                <div className="text-slate-400 text-sm">{testimonial.role}</div>
+                <div className={`${theme === 'dark' ? 'text-white' : 'text-slate-900'} font-semibold`}>{testimonial.author}</div>
+                <div className={`${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'} text-sm`}>{testimonial.role}</div>
               </div>
             </div>
           ))}

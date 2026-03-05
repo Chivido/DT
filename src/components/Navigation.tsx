@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
+import { useTheme } from '../contexts/ThemeContext';
+import logo from '../assets/Chivido55.png';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,19 +27,17 @@ const Navigation = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-slate-950/95 backdrop-blur-md shadow-lg shadow-blue-900/20' : 'bg-transparent'
+        isScrolled
+          ? theme === 'dark'
+            ? 'bg-slate-950/95 backdrop-blur-md shadow-lg shadow-blue-900/20'
+            : 'bg-white/95 backdrop-blur-md shadow-lg'
+          : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">CDC</span>
-            </div>
-            <div className="text-white">
-              <div className="font-bold text-lg">Chisom David</div>
-              <div className="text-xs text-slate-400">Digital Transformation</div>
-            </div>
+          <div className="flex items-center">
+            <img src={logo} alt="Chivido.ng" className="h-10 w-auto" />
           </div>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -44,11 +45,26 @@ const Navigation = () => {
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className="text-slate-300 hover:text-white transition-colors duration-200 text-sm font-medium"
+                className={`transition-colors duration-200 text-sm font-medium ${
+                  theme === 'dark'
+                    ? 'text-slate-300 hover:text-white'
+                    : 'text-slate-700 hover:text-blue-600'
+                }`}
               >
                 {item}
               </button>
             ))}
+            <button
+              onClick={toggleTheme}
+              className={`p-2 rounded-lg transition-all duration-300 ${
+                theme === 'dark'
+                  ? 'bg-slate-800 text-yellow-400 hover:bg-slate-700'
+                  : 'bg-slate-200 text-slate-700 hover:bg-slate-300'
+              }`}
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
             <button
               onClick={() => scrollToSection('contact')}
               className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300"
@@ -57,23 +73,44 @@ const Navigation = () => {
             </button>
           </div>
 
-          <button
-            className="md:hidden text-white"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="flex md:hidden items-center space-x-3">
+            <button
+              onClick={toggleTheme}
+              className={`p-2 rounded-lg transition-all duration-300 ${
+                theme === 'dark'
+                  ? 'bg-slate-800 text-yellow-400'
+                  : 'bg-slate-200 text-slate-700'
+              }`}
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+            <button
+              className={theme === 'dark' ? 'text-white' : 'text-slate-900'}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-slate-950/98 backdrop-blur-md border-t border-white/10">
+        <div className={`md:hidden backdrop-blur-md border-t ${
+          theme === 'dark'
+            ? 'bg-slate-950/98 border-white/10'
+            : 'bg-white/98 border-slate-200'
+        }`}>
           <div className="px-4 py-6 space-y-4">
             {['Home', 'About', 'Services', 'Portfolio', 'Contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className="block w-full text-left text-slate-300 hover:text-white transition-colors duration-200 py-2"
+                className={`block w-full text-left transition-colors duration-200 py-2 ${
+                  theme === 'dark'
+                    ? 'text-slate-300 hover:text-white'
+                    : 'text-slate-700 hover:text-blue-600'
+                }`}
               >
                 {item}
               </button>

@@ -1,7 +1,9 @@
 import { DollarSign, Users, Award, Rocket, TrendingUp, Globe } from 'lucide-react';
 import { useEffect, useState, useRef } from 'react';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Impact = () => {
+  const { theme } = useTheme();
   const [counts, setCounts] = useState({ value: 0, trained: 0, years: 0, projects: 0 });
   const [hasAnimated, setHasAnimated] = useState(false);
   const sectionRef = useRef(null);
@@ -65,16 +67,16 @@ const Impact = () => {
   ];
 
   return (
-    <section ref={sectionRef} id="impact" className="py-24 bg-slate-900">
+    <section ref={sectionRef} id="impact" className={`py-24 ${theme === 'dark' ? 'bg-slate-900' : 'bg-slate-50'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm rounded-full border border-blue-500/30 mb-4">
             <span className="text-blue-400 text-sm font-semibold tracking-wide uppercase">Impact & Results</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className={`text-4xl md:text-5xl font-bold ${theme === 'dark' ? 'text-white' : 'text-slate-900'} mb-6`}>
             Measurable Business Value
           </h2>
-          <p className="text-xl text-slate-400 max-w-3xl mx-auto">
+          <p className={`text-xl ${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'} max-w-3xl mx-auto`}>
             Proven track record of delivering transformative results across enterprise organizations
           </p>
         </div>
@@ -85,13 +87,13 @@ const Impact = () => {
             return (
               <div
                 key={index}
-                className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 text-center hover:border-blue-500/50 transition-all duration-300"
+                className={`${theme === 'dark' ? 'bg-white/5' : 'bg-slate-100'} backdrop-blur-sm p-8 rounded-2xl border ${theme === 'dark' ? 'border-white/10' : 'border-slate-200'} text-center hover:border-blue-500/50 transition-all duration-300`}
               >
                 <div className={`inline-flex p-4 rounded-xl bg-gradient-to-r ${metric.gradient} mb-4`}>
                   <Icon className="text-white" size={32} />
                 </div>
-                <div className="text-4xl font-bold text-white mb-2">{metric.value}</div>
-                <div className="text-slate-400">{metric.label}</div>
+                <div className={`text-4xl font-bold ${theme === 'dark' ? 'text-white' : 'text-slate-900'} mb-2`}>{metric.value}</div>
+                <div className={`${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'}`}>{metric.label}</div>
               </div>
             );
           })}
@@ -103,15 +105,15 @@ const Impact = () => {
             return (
               <div
                 key={index}
-                className="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10 hover:border-blue-500/50 transition-all duration-300"
+                className={`${theme === 'dark' ? 'bg-white/5' : 'bg-slate-100'} backdrop-blur-sm p-6 rounded-xl border ${theme === 'dark' ? 'border-white/10' : 'border-slate-200'} hover:border-blue-500/50 transition-all duration-300`}
               >
                 <div className="flex items-start gap-4">
                   <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-r from-${achievement.color}-600 to-${achievement.color}-500 rounded-lg flex items-center justify-center`}>
                     <Icon className="text-white" size={24} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-2">{achievement.title}</h3>
-                    <p className="text-slate-400">{achievement.description}</p>
+                    <h3 className={`text-xl font-bold ${theme === 'dark' ? 'text-white' : 'text-slate-900'} mb-2`}>{achievement.title}</h3>
+                    <p className={`${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'}`}>{achievement.description}</p>
                   </div>
                 </div>
               </div>

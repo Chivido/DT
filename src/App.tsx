@@ -1,3 +1,4 @@
+import { ThemeProvider } from './contexts/ThemeContext';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -11,18 +12,20 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
-      <Navigation />
-      <Hero />
-      <About />
-      <Services />
-      <Impact />
-      <Portfolio />
-      <Media />
-      <Testimonials />
-      <Contact />
-      <Footer />
-    </div>
+    <ThemeProvider>
+      <div className="min-h-screen transition-colors duration-300 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 light:from-slate-50 light:via-white light:to-slate-50">
+        <Navigation />
+        <Hero />
+        <About />
+        <Services />
+        <Impact />
+        <Portfolio />
+        <Media />
+        <Testimonials />
+        <Contact />
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }
 

@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { Mail, Linkedin, Globe, Send, Calendar } from 'lucide-react';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Contact = () => {
+  const { theme } = useTheme();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -23,24 +25,24 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-slate-900">
+    <section id="contact" className={`py-24 ${theme === 'dark' ? 'bg-slate-900' : 'bg-slate-50'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm rounded-full border border-blue-500/30 mb-4">
             <span className="text-blue-400 text-sm font-semibold tracking-wide uppercase">Let's Connect</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className={`text-4xl md:text-5xl font-bold ${theme === 'dark' ? 'text-white' : 'text-slate-900'} mb-6`}>
             Work With Me
           </h2>
-          <p className="text-xl text-slate-400 max-w-3xl mx-auto">
+          <p className={`text-xl ${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'} max-w-3xl mx-auto`}>
             Ready to transform your organization? Let's discuss how we can work together.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
           <div>
-            <div className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 mb-8">
-              <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
+            <div className={`${theme === 'dark' ? 'bg-white/5' : 'bg-slate-100'} backdrop-blur-sm p-8 rounded-2xl border ${theme === 'dark' ? 'border-white/10' : 'border-slate-200'} mb-8`}>
+              <h3 className={`text-2xl font-bold ${theme === 'dark' ? 'text-white' : 'text-slate-900'} mb-6`}>Contact Information</h3>
 
               <div className="space-y-6">
                 <a href="mailto:emeks14@gmail.com" className="flex items-start gap-4 group">
@@ -48,8 +50,8 @@ const Contact = () => {
                     <Mail className="text-white" size={20} />
                   </div>
                   <div>
-                    <div className="text-slate-400 text-sm mb-1">Email</div>
-                    <div className="text-white font-medium group-hover:text-blue-400 transition-colors">emeks14@gmail.com</div>
+                    <div className={`${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'} text-sm mb-1`}>Email</div>
+                    <div className={`${theme === 'dark' ? 'text-white' : 'text-slate-900'} font-medium group-hover:text-blue-400 transition-colors`}>emeks14@gmail.com</div>
                   </div>
                 </a>
 
@@ -58,8 +60,8 @@ const Contact = () => {
                     <Linkedin className="text-white" size={20} />
                   </div>
                   <div>
-                    <div className="text-slate-400 text-sm mb-1">LinkedIn</div>
-                    <div className="text-white font-medium group-hover:text-blue-400 transition-colors">linkedin.com/in/chisom-david</div>
+                    <div className={`${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'} text-sm mb-1`}>LinkedIn</div>
+                    <div className={`${theme === 'dark' ? 'text-white' : 'text-slate-900'} font-medium group-hover:text-blue-400 transition-colors`}>linkedin.com/in/chisom-david</div>
                   </div>
                 </a>
 
@@ -68,8 +70,8 @@ const Contact = () => {
                     <Globe className="text-white" size={20} />
                   </div>
                   <div>
-                    <div className="text-slate-400 text-sm mb-1">Website</div>
-                    <div className="text-white font-medium group-hover:text-purple-400 transition-colors">www.chivido.ng</div>
+                    <div className={`${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'} text-sm mb-1`}>Website</div>
+                    <div className={`${theme === 'dark' ? 'text-white' : 'text-slate-900'} font-medium group-hover:text-purple-400 transition-colors`}>www.chivido.ng</div>
                   </div>
                 </a>
               </div>
@@ -77,17 +79,17 @@ const Contact = () => {
 
             <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm p-6 rounded-2xl border border-blue-500/30">
               <Calendar className="text-blue-400 mb-3" size={32} />
-              <h4 className="text-white font-semibold mb-2">Schedule a Consultation</h4>
-              <p className="text-slate-300 text-sm">Book a free 30-minute strategy session to discuss your digital transformation needs.</p>
+              <h4 className={`${theme === 'dark' ? 'text-white' : 'text-slate-900'} font-semibold mb-2`}>Schedule a Consultation</h4>
+              <p className={`${theme === 'dark' ? 'text-slate-300' : 'text-slate-700'} text-sm`}>Book a free 30-minute strategy session to discuss your digital transformation needs.</p>
             </div>
           </div>
 
-          <div className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10">
-            <h3 className="text-2xl font-bold text-white mb-6">Send a Message</h3>
+          <div className={`${theme === 'dark' ? 'bg-white/5' : 'bg-slate-100'} backdrop-blur-sm p-8 rounded-2xl border ${theme === 'dark' ? 'border-white/10' : 'border-slate-200'}`}>
+            <h3 className={`text-2xl font-bold ${theme === 'dark' ? 'text-white' : 'text-slate-900'} mb-6`}>Send a Message</h3>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">
+                <label htmlFor="name" className={`block text-sm font-medium ${theme === 'dark' ? 'text-slate-300' : 'text-slate-700'} mb-2`}>
                   Full Name *
                 </label>
                 <input
@@ -97,13 +99,13 @@ const Contact = () => {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-white"
+                  className={`w-full px-4 py-3 ${theme === 'dark' ? 'bg-white/5 border-white/10 text-white' : 'bg-white border-slate-200 text-slate-900'} border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all`}
                   placeholder="John Doe"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
+                <label htmlFor="email" className={`block text-sm font-medium ${theme === 'dark' ? 'text-slate-300' : 'text-slate-700'} mb-2`}>
                   Email Address *
                 </label>
                 <input
@@ -113,13 +115,13 @@ const Contact = () => {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-white"
+                  className={`w-full px-4 py-3 ${theme === 'dark' ? 'bg-white/5 border-white/10 text-white' : 'bg-white border-slate-200 text-slate-900'} border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all`}
                   placeholder="john@company.com"
                 />
               </div>
 
               <div>
-                <label htmlFor="company" className="block text-sm font-medium text-slate-300 mb-2">
+                <label htmlFor="company" className={`block text-sm font-medium ${theme === 'dark' ? 'text-slate-300' : 'text-slate-700'} mb-2`}>
                   Company / Organization
                 </label>
                 <input
@@ -128,13 +130,13 @@ const Contact = () => {
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-white"
+                  className={`w-full px-4 py-3 ${theme === 'dark' ? 'bg-white/5 border-white/10 text-white' : 'bg-white border-slate-200 text-slate-900'} border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all`}
                   placeholder="Your Company"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-2">
+                <label htmlFor="message" className={`block text-sm font-medium ${theme === 'dark' ? 'text-slate-300' : 'text-slate-700'} mb-2`}>
                   Message *
                 </label>
                 <textarea
@@ -144,7 +146,7 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   rows={5}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none text-white"
+                  className={`w-full px-4 py-3 ${theme === 'dark' ? 'bg-white/5 border-white/10 text-white' : 'bg-white border-slate-200 text-slate-900'} border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none`}
                   placeholder="Tell me about your digital transformation needs..."
                 ></textarea>
               </div>
