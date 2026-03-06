@@ -1,5 +1,6 @@
 import { Linkedin, Mail, Globe } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
+import logo from '../assets/Chivido.ng_Transparent_1.1.png';
 
 const Footer = () => {
   const { theme } = useTheme();
@@ -10,14 +11,8 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">CDC</span>
-              </div>
-              <div className={`${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
-                <div className="font-bold text-lg">Chisom David</div>
-                <div className={`text-xs ${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'}`}>Digital Transformation</div>
-              </div>
+            <div className="mb-4">
+              <img src={logo} alt="Chivido.ng" className="h-12 w-auto mb-4" />
             </div>
             <p className={`${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'} text-sm leading-relaxed`}>
               Strategic IT Leader helping organizations unlock millions in value through digital strategy, AI, and innovation.

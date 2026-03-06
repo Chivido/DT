@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
-import logo from '../assets/Chivido55.png';
+import logo from '../assets/Chivido.ng_Transparent_1.1.png';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,7 +37,7 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center">
-            <img src={logo} alt="Chivido.ng" className="h-10 w-auto" />
+            <img src={logo} alt="Chivido.ng" className="h-12 w-auto" />
           </div>
 
           <div className="hidden md:flex items-center space-x-8">
