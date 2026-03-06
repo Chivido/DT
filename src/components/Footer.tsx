@@ -11,8 +11,13 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <div className="mb-4">
-              <img src={logo} alt="Chivido.ng" className="h-12 w-auto mb-4" />
+            <div className="mb-6">
+              <img
+                src={logo}
+                alt="Chivido.ng"
+                className="h-14 w-auto"
+                style={{ filter: 'brightness(1.1) contrast(1.2)' }}
+              />
             </div>
             <p className={`${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'} text-sm leading-relaxed`}>
               Strategic IT Leader helping organizations unlock millions in value through digital strategy, AI, and innovation.
