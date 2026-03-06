@@ -15,7 +15,7 @@ const Footer = () => {
               <img
                 src={logo}
                 alt="Chivido.ng"
-                className="h-14 w-auto"
+                className="h-20 w-auto"
                 style={{ filter: 'brightness(1.1) contrast(1.2)' }}
               />
             </div>
